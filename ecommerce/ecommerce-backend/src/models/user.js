@@ -48,7 +48,7 @@ this.hash_password =  bcrypt.hashSync(password,10);
 });
 userSchema.methods ={
     authenticate:function(password){
-        return bcrypt.compare(password,this.hash_password);
+        return bcrypt.compareSync(password,this.hash_password);
     }
 }
 module.exports = mongoose.model('user',userSchema);
