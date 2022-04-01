@@ -11,9 +11,15 @@ exports.signup = (req, res) => {
             email,
             password
         } = req.body;
-        const _user = new User({  firstName,lastName, email,  password,username:Math.random().toString()});
+        const _user = new User({ 
+             firstName,
+             lastName, 
+             email,  
+             password,
+             username:Math.random().toString()
+            });
     
-    });
+    
     _user.save((error,data) => {
         if(error){
             return res.status(400).json({
@@ -23,9 +29,11 @@ exports.signup = (req, res) => {
         }
         if(data){
             return res.status(201).json({
-            message:"user created seccessful"
+          //  message:"user created seccessful"
+          user:data
             })
         }
     });
+});
     
 }
