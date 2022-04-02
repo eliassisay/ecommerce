@@ -1,5 +1,6 @@
 import React from 'react'
 import { Nav,Navbar,Container} from 'react-bootstrap'
+import {NavLink,Link} from 'react-router-dom'
 
 /**
 * @author
@@ -12,7 +13,8 @@ export const Header
   return(
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 <Container>
-    <Navbar.Brand href="#home">ADMIN</Navbar.Brand>
+    {/* <Navbar.Brand href="#home">ADMIN</Navbar.Brand> */}
+    <Link to="/"className='navbar-brand'>Admin dashboard</Link>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="me-auto">
@@ -26,8 +28,14 @@ export const Header
         </NavDropdown> */}
       </Nav>
       <Nav>
-        <Nav.Link href="#deets">sign in</Nav.Link>
-       
+  
+       <li className="nav-item">
+            <NavLink to="/signin" className="nav-link">Signin</NavLink>
+       </li>
+      
+       <li className="nav-item">
+            <NavLink to="/signup" className="nav-link">Signup</NavLink>
+       </li>
       </Nav>
     </Navbar.Collapse>
     </Container>
